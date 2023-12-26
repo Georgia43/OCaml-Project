@@ -4,31 +4,6 @@
 
   You may read it though, out of curiosity.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 *)
 
 
