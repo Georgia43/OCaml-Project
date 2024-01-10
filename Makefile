@@ -1,7 +1,7 @@
 .PHONY: all build format edit demo clean
 
-src?=0
-dst?=5
+source?=0
+sink?=12
 graph?=graph2.txt
 
 all: build
@@ -19,7 +19,7 @@ edit:
 
 demo: build
 	@echo "\n   ⚡  EXECUTING  ⚡\n"
-	./ftest.exe graphs/${graph} $(src) $(dst) outfile
+	./ftest.exe graphs/${graph} $(source) $(sink) outfile
 	@echo "\n   🥁  RESULT (content of outfile)  🥁\n"
 	@cat outfile
 

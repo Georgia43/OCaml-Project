@@ -1,7 +1,7 @@
 open Gfile
 open Tools  
 open Ford
-open Graph
+(*open Graph*)
 
 let () =
 
@@ -21,16 +21,17 @@ let () =
   (* Arguments are : infile(1) source-id(2) sink-id(3) outfile(4) *)
   
   let infile = Sys.argv.(1)
-  and _outfile = Sys.argv.(4) 
+  and outfile = Sys.argv.(4) 
   
   (* These command-line arguments are not used for the moment. *)
-  and _source = int_of_string Sys.argv.(2)
-  and _sink = int_of_string Sys.argv.(3)
+  and source = int_of_string Sys.argv.(2)
+  and sink = int_of_string Sys.argv.(3)
   in
 
   (* Open file *)
   let graph = from_file infile in 
-   let graph = gmap graph int_of_string in 
+
+   let g2 = gmap graph int_of_string in 
   (*let g3 = add_arc g2 3 4 1000000 in
   let g4 = gmap g3 string_of_int in*)
 
@@ -43,11 +44,30 @@ let () =
   ()*)
 (*
  let graph = from_file infile in *)
- let g2 = find_path 0 7 graph [] in
+let ford = ford_fulk g2 source sink in 
+let flow =  (fst ford) in  
+let final_graph = (snd ford) in 
+let g4 = gmap final_graph string_of_int in
+let _ = Printf.printf "!!!!!!!!!!!! max flow = %d\n  " flow in
+ let () = export outfile g4 in
+
+  ()
   (*let g1 = List.iter (fun x -> Printf.printf "%d" x.tgt) in*)
-  let _ = Printf.printf "[" in 
+  (*let _ = Printf.printf "[" in 
   let _ = List.iter (fun x -> Printf.printf "%d \n" x.src) g2 in
   let _ = Printf.printf "]" in 
   let _ = Printf.printf "min label %d\n" (min_label g2) in 
-  ()
-  
+  ()*)
+
+(*let _ = Printf.printf "%d\n" g2 in *)
+(*let g3 = gmap g2 string_of_int in
+(* Rewrite the graph that has been read. *)
+  let () = write_file outfile g3 in
+()*)
+(*let g3 = update_graph graph g2 in*)
+
+ (*let g3 = modify_cap g2 (find_path 0 5 graph []) 5 in  
+ let g4 = gmap g3 string_of_int in
+ let () = export outfile g4 in
+
+  ()*)
