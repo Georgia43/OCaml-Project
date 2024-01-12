@@ -1,14 +1,19 @@
 .PHONY: all build format edit demo clean
 
-source?=0
-sink?=12
-graph?=graph2.txt
+#source?=0
+#sink?=1
+#graph?=graph2.txt
+inp?=hostM.txt
+# dune build src/ftest.exe
+#./ftest.exe graphs/${graph} $(source) $(sink) outfile
+#./htest.exe graphs/${inp} $(source) $(sink) outfile
+
 
 all: build
 
 build:
 	@echo "\n   🚨  COMPILING  🚨 \n"
-	dune build src/ftest.exe
+	dune build src/htest.exe
 	ls src/*.exe > /dev/null && ln -fs src/*.exe .
 
 format:
@@ -19,9 +24,9 @@ edit:
 
 demo: build
 	@echo "\n   ⚡  EXECUTING  ⚡\n"
-	./ftest.exe graphs/${graph} $(source) $(sink) outfile
-	@echo "\n   🥁  RESULT (content of outfile)  🥁\n"
-	@cat outfile
+	./htest.exe graphs/${inp} outfile2
+	@echo "\n   🥁  RESULT (content of outfile2)  🥁\n"
+	@cat outfile2
 
 clean:
 	find -L . -name "*~" -delete

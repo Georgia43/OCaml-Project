@@ -1,0 +1,25 @@
+%% Host Matching
+
+%% Hackers
+
+a Peter all 2
+a Mary all 3
+a John not 4
+a Jack all 5
+
+   
+%% Hosts
+
+o Laura not 6
+o Lili cat 7
+o Bruno not 8
+o Ross not 9
+o Brian cat 10
+
+%% cat means that the host has a cat
+%% all means that the hacker is allergic to cats 
+%% not means that the person doesnt have a constraint 
+%% the numbers represent the ids of each person ; 0 and 1 are the source and the sink 
+
+
+% End of graph

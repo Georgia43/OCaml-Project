@@ -44,11 +44,16 @@ let () =
   ()*)
 (*
  let graph = from_file infile in *)
+(*let _ = Printf.printf "[" in 
+  let _ = List.iter (fun x -> Printf.printf "%d ----- %d \n " x.src x.tgt) (get_all_arcs g2) in
+  let _ = Printf.printf "]" in *)
 let ford = ford_fulk g2 source sink in 
 let flow =  (fst ford) in  
 let final_graph = (snd ford) in 
+let _ = Printf.printf "max flow : %d" flow in 
 let g4 = gmap final_graph string_of_int in
-let _ = Printf.printf "!!!!!!!!!!!! max flow = %d\n  " flow in
+(*let g5 = flow_graph g2 final_graph in
+let g6 = gmap g5 string_of_int in*)
  let () = export outfile g4 in
 
   ()
