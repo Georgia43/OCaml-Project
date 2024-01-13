@@ -59,6 +59,8 @@ The algorithm operates by augmenting the flow along paths from the source to the
 ## Termination
 The algorithm ends when there are no more paths between source and destination so when findPath source destination is empty. 
 
+## Creation of the flow graph
+After the algorithm ford_fulkerson is ran, we create the flow graph corresponding to the final deviation graph.
 
 
 # Host Matching Project 
