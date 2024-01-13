@@ -88,8 +88,8 @@ let update_graph gr path =
         let min =  Printf.printf "test min %!" ; min_label path in 
         let max_flow = flow + min in (*update the value of the max flow*)
         let new_graph = update_graph graph path in
-        let g =  gmap new_graph string_of_int in (*used only for testing*)
-        let () = export "test5" g in
+        (*let g =  gmap new_graph string_of_int in (*used only for testing*)
+        let () = export "test5" g in*)
         algo max_flow new_graph in (*apply the recursion to the new graph until no more path found*)
         
      algo 0 gr ;; 
